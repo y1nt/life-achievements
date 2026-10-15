@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlite"
+  url = env("DATABASE_URL")
+}
+model User {
+  id String @id @default("local")
+  nickname String
+  bio String @default("")
+  avatar String @default("compass")
+  active Boolean @default(true)
+  unlocks UserAchievement[]
+  showcase Showcase[]
+}
+model Achievement {
+  id String @id
+  name String
+  description String
+  condition String
+  category Int
+  icon String
+  difficulty Int
+  unlocks UserAchievement[]
+  showcase Showcase[]
+}
+model UserAchievement {
+  userId String
+  achievementId String
+  completedAt String
+  note String @default("")
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  @@id([userId, achievementId])
+}
+model Showcase {
+  userId String
+  achievementId String
+  position Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  @@id([userId, achievementId])
+  @@unique([userId, position])
+}
