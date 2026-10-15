@@ -172,7 +172,7 @@ npm run dev
 
 On macOS or Linux, replace the first command with `cp .env.example .env`. Preserve an existing `.env` rather than overwriting it.
 
-Visit [http://127.0.0.1:3000](http://127.0.0.1:3000), select **创建档案** (Create profile), and explore the atlas.
+Visit [http://127.0.0.1:3000](http://127.0.0.1:3000), select **Create profile** , and explore the atlas.
 
 For a reproducible install with the included lockfile, use pnpm after copying `.env.example`:
 
@@ -217,7 +217,7 @@ The four models are `Achievement` (definitions and difficulty), `User` (profile 
 
 `Unlock rate = active users who unlocked an achievement / all active users × 100%`
 
-An active statistical user currently means `User.active = true`, not a verified real-world identity. Rates and rarity are shown only with **at least 100 active users**. Smaller samples display **数据不足** (Insufficient data). No fictional users or simulated percentages are supplied.
+An active statistical user currently means `User.active = true`, not a verified real-world identity. Rates and rarity are shown only with **at least 100 active users**. Smaller samples display **Insufficient data** . No fictional users or simulated percentages are supplied.
 
 | Rarity    | Unlock rate   |
 | --------- | ------------- |
